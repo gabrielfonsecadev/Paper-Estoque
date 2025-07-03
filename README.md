@@ -32,7 +32,6 @@ Antes de executar o projeto, certifique-se de ter instalado:
 1. **Clone ou baixe o projeto**
    ```bash
    git clone https://github.com/gabrielfonsecadev/Paper-Estoque
-   cd "Paper Final"
    ```
 
 2. **Instale as dependências**
