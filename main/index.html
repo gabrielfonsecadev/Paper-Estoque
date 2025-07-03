@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Estoque</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Gerenciamento de Estoque</h1>
+        </header>
+
+        <!-- Formulário para adicionar/editar itens -->
+        <section class="form-section">
+            <h2 id="form-title">Adicionar Novo Item</h2>
+            <form id="item-form">
+                <div class="form-group">
+                    <label for="nome">Nome do Produto:</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Ex: Notebook Dell">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade:</label>
+                        <input type="number" id="quantidade" name="quantidade" min="0" required placeholder="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preco">Preço (R$):</label>
+                        <input type="number" id="preco" name="preco" min="0" step="0.01" required placeholder="0.00">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn">Adicionar Item</button>
+                    <button type="button" id="cancel-btn" style="display: none;">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Seção de estatísticas -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3>Total de Itens</h3>
+                <span id="total-items">0</span>
+            </div>
+            <div class="stat-card">
+                <h3>Valor Total do Estoque</h3>
+                <span id="total-value">R$ 0,00</span>
+            </div>
+        </section>
+
+        <!-- Tabela de itens -->
+        <section class="table-section">
+            <h2>Itens em Estoque</h2>
+            <div class="table-container">
+                <table id="items-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Valor Total</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items-tbody">
+                        <!-- Os itens serão inseridos aqui dinamicamente -->
+                    </tbody>
+                </table>
+
+                <!-- Mensagem quando não há itens -->
+                <div id="empty-message" class="empty-message">
+                    <p>📋 Nenhum item cadastrado ainda.</p>
+                    <p>Use o formulário acima para adicionar seu primeiro produto!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal de confirmação para exclusão -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <h3>Confirmar Exclusão</h3>
+            <p>Tem certeza que deseja excluir este item?</p>
+            <div class="modal-actions">
+                <button id="confirm-delete" class="btn-danger">Excluir</button>
+                <button id="cancel-delete" class="btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Área de notificações -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
