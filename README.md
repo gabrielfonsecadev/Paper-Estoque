@@ -1,2 +1,0 @@
-# Paper-Estoque
-# Paper-Estoque

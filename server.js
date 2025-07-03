@@ -9,7 +9,7 @@ const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('main'));
+app.use(express.static('.'));
 
 
 const db = new sqlite3.Database('./estoque.db', (err) => {
@@ -116,7 +116,7 @@ app.delete('/items/:id', (req, res) => {
 
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'main', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 
